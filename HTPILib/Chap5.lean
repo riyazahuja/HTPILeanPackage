@@ -85,7 +85,7 @@ theorem func_from_graph {A B : Type} (F : Set (A × B)) :
 theorem Theorem_5_1_4 {A B : Type} (f g : A → B) :
     (∀ (a : A), f a = g a) → f = g := funext
 
-example {A B : Type} (f g : A → B) :
+theorem HTPI_C5_1 {A B : Type} (f g : A → B) :
     graph f = graph g → f = g := by
   assume h1 : graph f = graph g  --Goal : f = g
   apply funext                   --Goal : ∀ (x : A), f x = g x
@@ -103,7 +103,7 @@ def square1 (n : Nat) : Nat := n ^ 2
 
 def square2 : Nat → Nat := fun (n : Nat) => n ^ 2
 
-example : square1 = square2 := by rfl
+theorem HTPI_C5_2 : square1 = square2 := by rfl
 
 #eval square1 7     --Answer: 49
 
@@ -143,12 +143,12 @@ theorem Theorem_5_1_5 {A B C : Type} (f : A → B) (g : B → C) :
     done
   done
 
-example {A B C D : Type} (f : A → B) (g : B → C) (h : C → D) :
+theorem HTPI_C5_3 {A B C D : Type} (f : A → B) (g : B → C) (h : C → D) :
     h ∘ (g ∘ f) = (h ∘ g) ∘ f := by rfl
 
-example {A B : Type} (f : A → B) : f ∘ id = f := by rfl
+theorem HTPI_C5_4 {A B : Type} (f : A → B) : f ∘ id = f := by rfl
 
-example {A B : Type} (f : A → B) : id ∘ f = f := by rfl
+theorem HTPI_C5_5 {A B : Type} (f : A → B) : id ∘ f = f := by rfl
 
 /- Section 5.2 -/
 theorem Theorem_5_2_5_1 {A B C : Type} (f : A → B) (g : B → C) :
@@ -318,9 +318,9 @@ def plus' : Int → Int → Int := fun (m n : Int) => m + n
 
 def plus'' : Int → Int → Int := fun (m : Int) => (fun (n : Int) => m + n)
 
-example : plus = plus'' := by rfl
+theorem HTPI_C5_6 : plus = plus'' := by rfl
 
-example : plus' = plus'' := by rfl
+theorem HTPI_C5_7 : plus' = plus'' := by rfl
 
 #eval plus 3 2     --Answer: 5
 

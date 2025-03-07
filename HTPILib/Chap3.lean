@@ -39,7 +39,7 @@ theorem Like_Example_3_2_5
   done
 
 /- Section 3.3 -/
-example (U : Type) (P Q : Pred U)
+theorem HTPI_C3_1 (U : Type) (P Q : Pred U)
     (h1 : ∀ (x : U), P x → ¬Q x)
     (h2 : ∀ (x : U), Q x) :
     ¬∃ (x : U), P x := by
@@ -51,7 +51,7 @@ example (U : Type) (P Q : Pred U)
   show ¬P y from h3 h4
   done
 
-example (U : Type) (A B C : Set U) (h1 : A ⊆ B ∪ C)
+theorem HTPI_C3_2 (U : Type) (A B C : Set U) (h1 : A ⊆ B ∪ C)
     (h2 : ∀ (x : U), x ∈ A → x ∉ B) : A ⊆ C := by
   define  --Goal : ∀ ⦃a : U⦄, a ∈ A → a ∈ C
   fix y : U
@@ -64,7 +64,7 @@ example (U : Type) (A B C : Set U) (h1 : A ⊆ B ∪ C)
   show y ∈ C from h5 h4
   done
 
-example (U : Type) (P Q : Pred U)
+theorem HTPI_C3_3 (U : Type) (P Q : Pred U)
     (h1 : ∀ (x : U), ∃ (y : U), P x → ¬ Q y)
     (h2 : ∃ (x : U), ∀ (y : U), P x → Q y) :
     ∃ (x : U), ¬P x := by
@@ -114,7 +114,7 @@ theorem Like_Example_3_4_1 (U : Type)
     done
   done
 
-example (U : Type) (P Q : Pred U)
+theorem HTPI_C3_4 (U : Type) (P Q : Pred U)
     (h1 : ∀ (x : U), P x ↔ Q x) :
     (∃ (x : U), P x) ↔ ∃ (x : U), Q x := by
   apply Iff.intro
@@ -164,7 +164,7 @@ theorem Example_3_5_2
     done
   done
 
-example (U : Type) (A B C : Set U)
+theorem HTPI_C3_5 (U : Type) (A B C : Set U)
     (h1 : A \ B ⊆ C) : A ⊆ B ∪ C := by
   fix x : U
   assume h2 : x ∈ A
@@ -173,8 +173,7 @@ example (U : Type) (A B C : Set U)
   show x ∈ C from h1 (And.intro h2 h3)
   done
 
-example
-    (U : Type) (A B C : Set U) (h1 : A ⊆ B ∪ C)
+theorem HTPI_C3_6     (U : Type) (A B C : Set U) (h1 : A ⊆ B ∪ C)
     (h2 : ¬∃ (x : U), x ∈ A ∩ B) : A ⊆ C := by
   fix a : U
   assume h3 : a ∈ A
@@ -188,8 +187,7 @@ example
   show a ∈ C from h4
   done
 
-example
-    (U : Type) (A B C : Set U) (h1 : A ⊆ B ∪ C)
+theorem HTPI_C3_7     (U : Type) (A B C : Set U) (h1 : A ⊆ B ∪ C)
     (h2 : ¬∃ (x : U), x ∈ A ∩ B) : A ⊆ C := by
   fix a : U
   assume h3 : a ∈ A
